@@ -7,12 +7,15 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './page/home/home.component';
 import { HeaderComponent } from './componente/header/header.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidenavComponent } from './componente/sidenav/sidenav.component';
 import { ProductComponent } from './page/product/product.component';
+import { LoginComponent } from './page/login/login.component';
+import { FavoritesComponent } from './page/favorites/favorites.component';
+import { CartComponent } from './page/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { ProductComponent } from './page/product/product.component';
     HomeComponent,
     HeaderComponent,
     SidenavComponent,
-    ProductComponent
+    ProductComponent,
+    LoginComponent,
+    FavoritesComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
