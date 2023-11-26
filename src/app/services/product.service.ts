@@ -15,9 +15,12 @@ export class ProductService {
       name: 'Blusa',
       description: 'Blusa Morena Rosa Decote V Manga Curta Transpasse Frente Azul.',
       category: 'Roupas',
+      // color: ['branco', 'preto', 'azul', 'verde']
+      // tamanho: ["P", "M", 'G', "GG"]
       price: 350.00,
       imageUrl: 'https://lojamorenarosa.vtexassets.com/arquivos/ids/299706-800-auto?v=638349287945230000&width=800&height=auto&aspect=true',
       isfavorite: false,
+      toCart: false,
     },
     {
       id: 2,
@@ -27,6 +30,7 @@ export class ProductService {
       price: 1200.00,
       imageUrl: 'https://lojamorenarosa.vtexassets.com/arquivos/ids/300125-800-auto?v=638349312694630000&width=800&height=auto&aspect=true',
       isfavorite: false,
+      toCart: false,
     },
     {
       id: 3,
@@ -36,6 +40,7 @@ export class ProductService {
       price: 40000.00,
       imageUrl: 'https://cdnimg.etiquetaunica.com.br/products/webp/medium/bolsa-tiracolo-chanel-double-flap-metalica-cbyt5-1694173834-0000001_v2.webp',
       isfavorite: false,
+      toCart: false,
     },
     {
       id: 4,
@@ -45,6 +50,7 @@ export class ProductService {
       price: 1800.00,
       imageUrl: 'https://cdnimg.etiquetaunica.com.br/products/webp/medium/scarpin-chanel-captoe-couro-preto-awu3123-1693855938-0000001_v2.webp',
       isfavorite: false,
+      toCart: false,
     },
     {
       id: 5,
@@ -54,6 +60,7 @@ export class ProductService {
       price: 1600.00,
       imageUrl: 'https://cdnimg.etiquetaunica.com.br/products/webp/medium/oculos-de-sol-chanel-4222-tartaruga-caxa4-1693403164-0000001_v2.webp',
       isfavorite: false,
+      toCart: false,
     },
     {
       id: 6,
@@ -63,6 +70,7 @@ export class ProductService {
       price: 499.99,
       imageUrl: 'https://lojamorenarosa.vtexassets.com/arquivos/ids/290605-auto-895?v=638308129985070000&width=auto&height=895&aspect=true',
       isfavorite: false,
+      toCart: false,
     },
     {
       id: 7,
@@ -72,6 +80,7 @@ export class ProductService {
       price: 349.99,
       imageUrl: 'https://lojamorenarosa.vtexassets.com/arquivos/ids/294257-auto-895?v=638311431053470000&width=auto&height=895&aspect=true',
       isfavorite: false,
+      toCart: false,
     },
     {
       id: 8,
@@ -81,6 +90,7 @@ export class ProductService {
       price: 300.00,
       imageUrl: 'https://cdnimg.etiquetaunica.com.br/products/webp/medium/blusa-nike-tecido-preto-actw59-1700590996-0000001_v2.webp',
       isfavorite: false,
+      toCart: false,
     },
     {
       id: 9,
@@ -90,6 +100,7 @@ export class ProductService {
       price: 370.00,
       imageUrl: 'https://cdnimg.etiquetaunica.com.br/products/webp/medium/vestido-mixed-tecido-estampado-rpx1190-1700242408-0000001_v2.webp',
       isfavorite: false,
+      toCart: false,
     },
   ];
 

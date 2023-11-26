@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/interfaces/product';
 import { ProductService } from '../../services/product.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -11,7 +12,10 @@ export class ProductComponent implements OnInit{
   favorites: Product[] = [];
   products: Product[] = [];
   
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    public cartService: CartService,
+    ) {}
 
   ngOnInit() {
     this.getProducts();
@@ -28,8 +32,14 @@ export class ProductComponent implements OnInit{
   }
 
   addToCart(product: Product): void {
-    // console.log(product)
-    // Implementar lógica para adicionar ao carrinho
+    this.cartService.addToCart(product) 
+    product.toCart = true;
+  }
+
+  removeToCart(product: Product): void {
+    const itemRemove = this.cartService.cartItems.filter((cart) => cart.product.id === product.id)
+    this.cartService.removeFromCart(itemRemove[0]) 
+    product.toCart = false;
   }
 
   toggleFavorite(idFavorite: any) {
@@ -49,3 +59,5 @@ export class ProductComponent implements OnInit{
     // this.productService.updateProduct(product);
   }
 }
+
+export { Product };

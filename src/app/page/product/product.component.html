@@ -6,6 +6,8 @@
           <img mat-card-image [src]="product.imageUrl" class="img-product" alt="{{ product.name }}">
           <mat-card-content class="description-product">
             <p class="description-product-p">{{ product.description }}</p>
+            <!-- <p class="description-product-p">{{ product.color }}</p>
+            <p class="description-product-p">{{ product.tamanho }}</p> -->
             <p class="description-product-p">{{ product.price | currency:'BRL':'symbol':'1.2-2' }}</p>
           </mat-card-content> 
         </a> 
@@ -14,7 +16,22 @@
             <mat-icon class="icon" *ngIf="product.isfavorite">favorite</mat-icon>
             <mat-icon *ngIf="!product.isfavorite">favorite_outline</mat-icon>
           </button>
-          <button mat-button color="accent" class="buttonComprar-product" (click)="addToCart(product)">Comprar</button>
+          <button
+            mat-button
+            class="buttonComprar-product"
+            (click)="addToCart(product)"
+            *ngIf="!product.toCart"
+          >
+            Comprar
+          </button>
+          <button
+            mat-button
+            class="buttonRemover-product"
+            (click)="removeToCart(product)"
+            *ngIf="product.toCart"
+          >
+            Remover da Sacola
+          </button>
         </div>
       </mat-card>
     </mat-grid-tile>

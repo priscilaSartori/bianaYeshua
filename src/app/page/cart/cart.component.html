@@ -1,3 +1,57 @@
 <section>
   <app-header></app-header>
+  <div class="cart-container">
+    <div class="card-container-1">
+      <h1>Minha Sacola</h1>
+      <div *ngIf="cartItems.length > 0; else emptyCart">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Produto</th>
+              <!-- <th>Cor</th>
+              <th>Tamanho</th> -->
+              <th>Quantidade</th>
+              <th>Preço</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of cartItems; let i = index">
+              <td><img [src]="item.product.imageUrl" alt="{{ item.product.name }}" class="img-cart"></td>
+              <td>{{ item.product.name }}</td>
+              <!-- <td>{{ item.color }}</td>
+              <td>{{ item.size }}</td> -->
+              <td>
+                <button mat-icon-button (click)="adicionarItem(item)">
+                  <mat-icon>add</mat-icon>
+                </button>
+                {{ item.quantity }}
+                <button mat-icon-button (click)="removerItem(item)">
+                  <mat-icon>remove</mat-icon>
+                </button>
+              </td>
+              <td>{{ item.product.price | currency:'BRL':'symbol':'1.2-2' }}</td>
+              <td>
+                <button mat-icon-button (click)="removeItem(item)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table> 
+      </div>
+    </div>
+    <div class="card-container-2">
+      <h1>Resumo da Compra</h1>
+      <p>Total: {{ calculateTotal() | currency }}</p>
+      <div class="card-container-2-button">
+        <button mat-icon-button (click)="pagamento()">Finalizar a compra</button>
+        <button mat-icon-button routerLink="/">Continuar comprando</button>
+      </div>
+    </div>
+  </div>
+  <ng-template #emptyCart>
+    <p>O carrinho está vazio.</p>
+  </ng-template>
 </section>

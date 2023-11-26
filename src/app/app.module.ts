@@ -5,6 +5,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -37,6 +39,8 @@ import { CartComponent } from './page/cart/cart.component';
     MatCardModule,
     MatGridListModule,
     MatIconModule,
+    MatListModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
