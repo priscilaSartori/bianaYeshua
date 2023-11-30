@@ -36,7 +36,7 @@ export class FavoritesComponent implements OnInit {
 
   removeFavorite(item: any) {
     this.favoritesService.removeFromCart(item);
-    this.productService.updateProductState(item);
+    this.productService.updateProductFavorite(item);
   }
 
   addFavoriteToCart(product: Product) {

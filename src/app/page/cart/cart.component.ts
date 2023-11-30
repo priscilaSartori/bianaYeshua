@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { CartItem } from 'src/app/interfaces/cart';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +11,10 @@ import { CartItem } from 'src/app/interfaces/cart';
 export class CartComponent {
   cartItems = this.cartService.getCartItems();
   
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private productService: ProductService,
+    ) {}
 
   adicionarItem(item: CartItem): void {
     this.cartService.addToCart(item.product);
@@ -18,16 +22,12 @@ export class CartComponent {
 
   removerItem(item: CartItem): void {
     this.cartService.removeFromCart(item);
+    this.productService.updateProductCart(item.product);
   }
 
   calculateTotal(): number {
     return this.cartService.calculateTotal();
   }
-
-  removeItem(item: any) {
-    return this.cartService.removeFromCart(item);
-  }
-
 
   pagamento() {
     

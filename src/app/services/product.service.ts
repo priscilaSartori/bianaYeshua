@@ -115,11 +115,20 @@ export class ProductService {
     return this.filterSubject.asObservable();
   }
 
-  updateProductState(product: Product): void {
+  updateProductFavorite(product: Product): void {
     const index = this.products.findIndex(p => p.id === product.id);
     
     if (index !== -1) {
       this.products[index] = { ...this.products[index], isfavorite: false };
+      this.filterSubject.next([...this.products]);
+    }
+  }
+
+  updateProductCart(product: Product): void {
+    const index = this.products.findIndex(p => p.id === product.id);
+    
+    if (index !== -1) {
+      this.products[index] = { ...this.products[index], toCart: false };
       this.filterSubject.next([...this.products]);
     }
   }
