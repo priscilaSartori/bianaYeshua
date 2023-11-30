@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/interfaces/product';
 import { ProductService } from '../../services/product.service';
 import { CartService } from 'src/app/services/cart.service';
+import { FavoritesService } from 'src/app/services/favorites.service';
 
 @Component({
   selector: 'app-product',
@@ -9,12 +10,12 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit{
-  favorites: Product[] = [];
   products: Product[] = [];
   
   constructor(
     private productService: ProductService,
     public cartService: CartService,
+    public favoritesService: FavoritesService,
     ) {}
 
   ngOnInit() {
@@ -27,8 +28,9 @@ export class ProductComponent implements OnInit{
   getProducts() {
     if (this.productService.filter.length > 0) {
       this.products = this.productService.filter;
-    } 
-    this.products = this.productService.products;
+    } else {
+      this.products = this.productService.products;
+    }
   }
 
   addToCart(product: Product): void {
@@ -37,27 +39,23 @@ export class ProductComponent implements OnInit{
   }
 
   removeToCart(product: Product): void {
-    const itemRemove = this.cartService.cartItems.filter((cart) => cart.product.id === product.id)
-    this.cartService.removeFromCart(itemRemove[0]) 
-    product.toCart = false;
+    const itemRemove = this.cartService.cartItems.find((cart) => cart.product.id === product.id);
+    if (itemRemove) {
+      this.cartService.removeFromCart(itemRemove);
+      product.toCart = false;
+    }
   }
 
   toggleFavorite(idFavorite: any) {
     const product = this.products.find(p => p.id === idFavorite);
     if (product) {
       product.isfavorite = !product.isfavorite;
+
       if (product.isfavorite) {
-        this.favorites.push(product);
+        this.favoritesService.addToCart(product);
       } else {
-        const index = this.favorites.findIndex(p => p.id === idFavorite);
-        if (index !== -1) {
-          this.favorites.splice(index, 1);
-        }
+        this.favoritesService.removeFromCart(product);
       }
     }
-    // Colocar no localStorage e na API
-    // this.productService.updateProduct(product);
   }
 }
-
-export { Product };

@@ -1,3 +1,32 @@
 <section>
   <app-header></app-header>
+  <mat-grid-list cols="5" rowHeight="2:3">
+    <mat-grid-tile *ngFor="let product of favoriteItems">
+      <mat-card class="card-product">
+        <a href="product/{{product.id}}"> 
+          <img mat-card-image [src]="product.imageUrl" class="img-product" alt="{{ product.name }}">
+          <mat-card-content class="description-product">
+            <p class="description-product-p">{{ product.description }}</p>
+            <p class="description-product-p">{{ product.price | currency:'BRL':'symbol':'1.2-2' }}</p>
+          </mat-card-content> 
+        </a> 
+        <div class="buttons">
+          <button
+            mat-button
+            class="buttonComprar-product"
+            (click)="addFavoriteToCart(product)"
+          >
+            Comprar
+          </button>
+          <button mat-button (click)="removeFavorite(product)">
+            <mat-icon class="icon">favorite</mat-icon>
+          </button>
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  
+  <ng-template #emptyCart>
+    <p>Não há itens favoritos.</p>
+  </ng-template>
 </section>

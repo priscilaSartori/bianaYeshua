@@ -13,10 +13,8 @@ export class ProductService {
     {
       id: 1,
       name: 'Blusa',
-      description: 'Blusa Morena Rosa Decote V Manga Curta Transpasse Frente Azul.',
+      description: 'Blusa Morena Rosa Decote V Manga Curta Transpasse Frente.',
       category: 'Roupas',
-      // color: ['branco', 'preto', 'azul', 'verde']
-      // tamanho: ["P", "M", 'G', "GG"]
       price: 350.00,
       imageUrl: 'https://lojamorenarosa.vtexassets.com/arquivos/ids/299706-800-auto?v=638349287945230000&width=800&height=auto&aspect=true',
       isfavorite: false,
@@ -65,7 +63,7 @@ export class ProductService {
     {
       id: 6,
       name: 'Maio',
-      description: 'Maio Morena Rosa Decote Quadrado Detalhe Passante Marrom.',
+      description: 'Maio Morena Rosa Decote Quadrado Marrom.',
       category: 'Praia',
       price: 499.99,
       imageUrl: 'https://lojamorenarosa.vtexassets.com/arquivos/ids/290605-auto-895?v=638308129985070000&width=auto&height=895&aspect=true',
@@ -115,5 +113,14 @@ export class ProductService {
 
   obterVariavel2Observable() {
     return this.filterSubject.asObservable();
+  }
+
+  updateProductState(product: Product): void {
+    const index = this.products.findIndex(p => p.id === product.id);
+    
+    if (index !== -1) {
+      this.products[index] = { ...this.products[index], isfavorite: false };
+      this.filterSubject.next([...this.products]);
+    }
   }
 }
