@@ -1,28 +1,129 @@
 <mat-sidenav #sidenav mode="side" opened="true">
   <mat-toolbar color="secundary">
-    <button mat-icon-button (click)="display('Roupas')">
-      <span>Roupas</span>
+    <button mat-icon-button (mouseenter)="openItem('Feminino')" (click)="display('Feminino')">
+      <span>Feminino</span>
     </button>
-    <button mat-icon-button (click)="display('Bolsa')">
-      <span>Bolsas</span>
-    </button>
-    <button mat-icon-button (click)="display('Sapatos')">
-      <span>Sapatos</span>
-    </button>
-    <button mat-icon-button (click)="display('Acessorios')">
-      <span>Acessórios</span>
-    </button>
-    <button mat-icon-button (click)="display('Praia')">
-      <span>Moda Praia</span>
-    </button>
-    <button mat-icon-button (click)="display('Fitness')">
-      <span>Fitness</span>
-    </button>
-    <button mat-icon-button (click)="display('Masculino')">
+    <button mat-icon-button (mouseenter)="openItem('Masculino')" (click)="display('Masculino')">
       <span>Masculino</span>
     </button>
-    <button mat-icon-button (click)="display('Infantil')">
+    <button mat-icon-button (mouseenter)="openItem('Infantil')" (click)="display('Infantil')">
       <span>Infantil</span>
+    </button>
+    <button mat-icon-button (mouseenter)="openItem('Acessorios')" (click)="display('Acessorios')">
+      <span>Acessórios</span>
+    </button>
+    <button mat-icon-button (mouseenter)="openItem('Praia')" (click)="display('Praia')">
+      <span>Moda Praia</span>
+    </button>
+    <button mat-icon-button (mouseenter)="openItem('Fitness')" (click)="display('Fitness')">
+      <span>Fitness</span>
     </button>
   </mat-toolbar>
 </mat-sidenav>
+<section class="sidenav-nav" (mouseleave)="closeItem()">
+  <div *ngIf='nav === "Feminino"'>
+    <ul>
+      <h2>Feminino</h2>
+      <li><a href="">Croppeds</a></li>
+      <li><a href="">Bermudas e shorts</a></li>
+      <li><a href="">Blazers</a></li>
+      <li><a href="">Blusas e camisetas</a></li>
+      <li><a href="">Body</a></li>
+      <li><a href="">Calças</a></li>
+      <li><a href="">Camisas</a></li>
+      <li><a href="">Cardigan</a></li>
+      <li><a href="">Casacos e jaquetas</a></li>
+      <li><a href="">Macacões e jaquetas</a></li>
+      <li><a href="">Pijamas</a></li>
+      <li><a href="">Saias</a></li>
+      <li><a href="">Vestidos</a></li>
+    </ul>
+  </div>
+  <div *ngIf='nav === "Masculino"'>
+    <ul>
+      <h2>Masculino</h2>
+      <li><a href="">Bermudas e shorts</a></li>
+      <li><a href="">Calças</a></li>
+      <li><a href="">Camisas</a></li>
+      <li><a href="">Camisetas</a></li>
+      <li><a href="">Casacos</a></li>
+      <li><a href="">Cuecas e meias</a></li>
+      <li><a href="">Moletom</a></li>
+      <li><a href="">Polos</a></li>
+    </ul>
+  </div>
+  <div *ngIf='nav === "Infantil"'>
+    <ul>
+      <h2>Infantil</h2>
+      <li><a href="">Bebê Feminino</a></li>
+      <li><a href="">Bebê Masculino</a></li>
+      <li><a href="">Bebê unissex</a></li>
+      <li><a href="">Meninas de 2 a 6 anos</a></li>
+      <li><a href="">Meninos de 2 a 6 anos</a></li>
+      <li><a href="">Meninas de 7 a 14 anos</a></li>
+      <li><a href="">Meninos de 7 a 14 anos</a></li>
+    </ul>
+  </div>
+  <div *ngIf='nav === "Acessorios"'>
+    <ul>
+      <h2>Acessórios</h2>
+      <li><a href="">Bolsas</a></li>
+      <li><a href="">Carteiras</a></li>
+      <li><a href="">Jóias e Bijuterias</a></li>
+      <li><a href="">Relógio</a></li>
+      <li><a href="">Óculos</a></li>
+      <li><a href="">Cintos</a></li>
+      <li><a href="">Bonés</a></li>
+      <li><a href="">Lenços</a></li>
+    </ul>
+  </div>
+  <div *ngIf='nav === "Praia"'>
+    <ul style="display: flex; flex-direction: column">
+      <h2>Moda Praia</h2>
+      <div style="display: flex; flex-direction: row">
+        <div class="praia">
+          <h3>Feminino</h3>
+          <li><a href="">Biquínis</a></li>
+          <li><a href="">Maiôs</a></li>
+          <li><a href="">Cangas</a></li>
+          <li><a href="">Saídas de praia</a></li>
+          <li><a href="">Bolsas e mochila</a></li>
+          <li><a href="">Chinelos</a></li>
+          <li><a href="">Chapéus</a></li>
+        </div>
+        <div class="praia">
+          <h3>Masculino</h3>
+          <li><a href="">Sungas</a></li>
+          <li><a href="">Shorts e bermudas</a></li>
+          <li><a href="">Regatas</a></li>
+          <li><a href="">Camisetas Ripping</a></li>
+          <li><a href="">Chinelos</a></li>
+          <li><a href="">Bonés</a></li>
+        </div>
+        <div class="praia">
+          <h3>Infantil</h3>
+          <li><a href="">Biquínis</a></li>
+          <li><a href="">Sungas</a></li>
+          <li><a href="">Maiôs</a></li>
+          <li><a href="">Short e bermudas</a></li>
+          <li><a href="">Saídas de praia</a></li>
+          <li><a href="">Chinelos</a></li>
+          <li><a href="">Bolsas e mochila</a></li>
+        </div>
+      </div>
+    </ul>
+  </div>
+  <div *ngIf='nav === "Fitness"'>
+    <ul>
+      <h2>Fitness</h2>
+      <li><a href="">Camisetas</a></li>
+      <li><a href="">Polos</a></li>
+      <li><a href="">Camisas</a></li>
+      <li><a href="">Casacos</a></li>
+      <li><a href="">Moletom</a></li>
+      <li><a href="">Calças</a></li>
+      <li><a href="">Bermudas e shorts</a></li>
+      <li><a href="">Cuecas e meias</a></li>
+    </ul>
+  </div>
+</section>

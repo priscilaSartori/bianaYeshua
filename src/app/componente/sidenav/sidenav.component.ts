@@ -7,10 +7,20 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent {
+  nav: string =  '';
 
   constructor(private productService: ProductService) {}
   
   display(componente: any) {
+    this.nav = componente;
     this.productService.filterProducts(componente)
+  }
+
+  openItem(componente: any) {
+    this.nav = componente;
+  }
+
+  closeItem() {
+    this.nav = '';
   }
 }

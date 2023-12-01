@@ -21,6 +21,7 @@ import { FavoritesComponent } from './page/favorites/favorites.component';
 import { CartComponent } from './page/cart/cart.component';
 import { NovidadesComponent } from './page/novidades/novidades.component';
 import { PromocaoComponent } from './page/promocao/promocao.component';
+import { ProductCardComponent } from './componente/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PromocaoComponent } from './page/promocao/promocao.component';
     FavoritesComponent,
     CartComponent,
     NovidadesComponent,
-    PromocaoComponent
+    PromocaoComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,

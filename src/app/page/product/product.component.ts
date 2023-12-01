@@ -32,30 +32,4 @@ export class ProductComponent implements OnInit{
       this.products = this.productService.products;
     }
   }
-
-  addToCart(product: Product): void {
-    this.cartService.addToCart(product) 
-    product.toCart = true;
-  }
-
-  removeToCart(product: Product): void {
-    const itemRemove = this.cartService.cartItems.find((cart) => cart.product.id === product.id);
-    if (itemRemove) {
-      this.cartService.removeFromCart(itemRemove);
-      product.toCart = false;
-    }
-  }
-
-  toggleFavorite(idFavorite: any) {
-    const product = this.products.find(p => p.id === idFavorite);
-    if (product) {
-      product.isfavorite = !product.isfavorite;
-
-      if (product.isfavorite) {
-        this.favoritesService.addToCart(product);
-      } else {
-        this.favoritesService.removeFromCart(product);
-      }
-    }
-  }
 }

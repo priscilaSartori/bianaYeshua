@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FavoritesService } from 'src/app/services/favorites.service';
-import { ProductService } from '../../services/product.service';
 import { Product } from 'src/app/interfaces/product';
-import { CartService } from 'src/app/services/cart.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
@@ -17,9 +15,7 @@ export class FavoritesComponent implements OnInit {
   private destroy$ = new Subject<void>();
 
   constructor(
-    private productService: ProductService,
     private favoritesService: FavoritesService,
-    private cartService: CartService,
   ) {}
 
   ngOnInit() {
@@ -32,17 +28,6 @@ export class FavoritesComponent implements OnInit {
 
   adicionarItem(item: any): void {
     this.favoritesService.addToCart(item.product);
-  }
-
-  removeFavorite(item: any) {
-    this.favoritesService.removeFromCart(item);
-    this.productService.updateProductFavorite(item);
-  }
-
-  addFavoriteToCart(product: Product) {
-    this.cartService.addToCart(product);
-    product.toCart = true;
-    this.removeFavorite(product);
   }
 
   ngOnDestroy() {
