@@ -7,6 +7,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,6 +19,8 @@ import { ProductComponent } from './page/product/product.component';
 import { LoginComponent } from './page/login/login.component';
 import { FavoritesComponent } from './page/favorites/favorites.component';
 import { CartComponent } from './page/cart/cart.component';
+import { NovidadesComponent } from './page/novidades/novidades.component';
+import { PromocaoComponent } from './page/promocao/promocao.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { CartComponent } from './page/cart/cart.component';
     ProductComponent,
     LoginComponent,
     FavoritesComponent,
-    CartComponent
+    CartComponent,
+    NovidadesComponent,
+    PromocaoComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +46,7 @@ import { CartComponent } from './page/cart/cart.component';
     MatIconModule,
     MatListModule,
     MatTableModule,
+    CarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

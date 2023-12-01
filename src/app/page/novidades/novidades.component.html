@@ -1,6 +1,7 @@
-<section>
+<section class="sectionNovidades">
+  <h1>NOVA COLEÇÃO</h1>
   <mat-grid-list cols="5" rowHeight="2:3">
-    <mat-grid-tile *ngFor="let product of products">
+    <mat-grid-tile *ngFor="let product of productsNovidades">
       <mat-card class="card-product">
         <a href="product/{{product.id}}"> 
           <img mat-card-image [src]="product.imageUrl" class="img-product" alt="{{ product.name }}">

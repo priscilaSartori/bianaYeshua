@@ -1,0 +1,17 @@
+<carousel>
+  <slide *ngFor="let slide of slides">
+    <img [src]="slide.image" class="imagemCarrocel" alt="Imagem do Carrossel">
+  </slide>
+</carousel>
+<br>
+<br>
+<section class="sectionPromocao">
+  <h1>OFERTAS</h1>
+  <div class="promotion">
+    <div *ngFor="let product of promotion">
+      <a href="">
+        <img class="promotion-img" src={{product.image}}>
+      </a>
+    </div>
+  </div>
+</section>

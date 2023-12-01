@@ -9,4 +9,6 @@ export interface Product {
   imageUrl: string;
   isfavorite: boolean;
   toCart: boolean;
+  isLaunch: boolean,
+  promotion: boolean,
 }
