@@ -14,7 +14,7 @@ export class ProductCardComponent implements OnInit {
   @Input() product: any;
   productsNovidades: Product[] = this.productService.products.filter((launch) => launch.isLaunch === true);
   isRoute: string = '';
-
+  
   constructor(
     private productService: ProductService,
     private favoritesService: FavoritesService,
@@ -23,7 +23,7 @@ export class ProductCardComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log(this.router.url)
+    // console.log(this.router.url)
     if (this.router.url === '/') {
       this.isRoute = 'home'
     }

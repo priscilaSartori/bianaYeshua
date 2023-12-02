@@ -16,7 +16,7 @@ export class ProductComponent implements OnInit{
     private productService: ProductService,
     public cartService: CartService,
     public favoritesService: FavoritesService,
-    ) {}
+  ) {}
 
   ngOnInit() {
     this.getProducts();

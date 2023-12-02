@@ -2,6 +2,7 @@ export interface Product {
   id: number;
   name: string;
   description: string;
+  gender: string,
   category: string;
   // color: string;
   // tamanho: string;
