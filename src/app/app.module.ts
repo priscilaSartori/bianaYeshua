@@ -24,6 +24,7 @@ import { NovidadesComponent } from './page/novidades/novidades.component';
 import { PromocaoComponent } from './page/promocao/promocao.component';
 import { ProductCardComponent } from './componente/product-card/product-card.component';
 import { FilterComponent } from './componente/filter/filter.component';
+import { FooterComponent } from './componente/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FilterComponent } from './componente/filter/filter.component';
     NovidadesComponent,
     PromocaoComponent,
     ProductCardComponent,
-    FilterComponent
+    FilterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,39 @@
+.container-footer, .container-redesocial {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+.footer-paragraph {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.footer-paragraph p {
+  width: 500px;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  margin-left: 0;
+  padding-left: 0;
+  before {
+    content: "-";
+    margin-right: 8px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
