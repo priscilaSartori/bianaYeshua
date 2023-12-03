@@ -1,15 +1,18 @@
 <section>
-  <app-filter></app-filter>
-
-  <ng-container *ngIf="products.length > 0; else emptyCart">
-    <mat-grid-list cols="5" rowHeight="2:3">
-      <mat-grid-tile *ngFor="let product of products">
-        <app-product-card [product]="product"></app-product-card>
-      </mat-grid-tile>
-    </mat-grid-list>
-  </ng-container>
-
-  <ng-template #emptyCart>
-    <p>Não há produtos nessa categoria.</p>
-  </ng-template>
+  <div class="container-filter">
+    <app-filter></app-filter>
+  </div>
+  <div class="container-product">
+    <ng-container *ngIf="products.length > 0; else emptyCart">
+      <mat-grid-list cols="4" rowHeight="2:3">
+        <mat-grid-tile *ngFor="let product of products">
+          <app-product-card [product]="product"></app-product-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </ng-container>
+  
+    <ng-template #emptyCart>
+      <p>Não há produtos nessa categoria.</p>
+    </ng-template>
+  </div>
 </section>
