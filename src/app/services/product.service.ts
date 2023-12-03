@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../interfaces/product';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { Product } from '../interfaces/product';
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class ProductService {
   private filterSubject = new Subject<Product[]>();
   private genderSubject = new Subject<string>();
+
   filter: Product[] = [];
   gender: string = '';
   products: Product[] = [
@@ -196,18 +197,40 @@ export class ProductService {
     },
   ];
 
-  constructor(
-    private router: Router,
-    ) {}
+  categories = {
+    feminino: [
+      'Croppeds', 'Bermudas', 'Blazers', 'Blusas', 'Body', 'Calças', 'Camisas', 'Cardigan', 'Casacos', 'Macacoes', 'Pijamas', 'Saias', 'Vestidos', 'Sapatos',
+      ],  
+    masculino: [
+      'Bermudas','Calças','Camisas','Camisetas','Casacos','Cuecas','Moletom','Polos'
+    ],  
+    infantil: [
+      'BebeFeminino','BebeMasculino','BebeUnissex','Meninas2a6','Meninos2a6','Meninas7a14','Meninos7a14',
+    ],  
+    acessorios: [
+      'Bolsas','Carteiras','Joias','Relogio','Oculos','Cintos','Bones', 'Lenços'
+    ],  
+    praia: [
+      'Biquinis','Maios','Cangas','Saidas','Bolsas','ChinelosF','Chapeus', 'Sungas','Shorts','Regatas','Camisetas','ChinelosM','Bones'
+    ],
+    fitness: [
+      'Camisetas','Tops','Camisas','Casacos','Moletom','Calças','Bermudas','Cuecas'
+    ]
+  }
+
+  constructor(private router: Router) {}
 
   getProducts() {
     return this.filter.length > 0 ? this.filter : this.products;
   }
 
+  getGender() {
+    return this.gender
+  }
+
   filterProductsGender(gender: any) {
     this.filter = this.products.filter((product) => product.gender === gender)
     this.filterSubject.next(this.filter);
-    this.gender = gender;
     this.router.navigate(['/products/category/' + gender]);
     this.genderSubject.next(this.gender);
   }
@@ -218,28 +241,26 @@ export class ProductService {
     this.filterSubject.next(this.filter);
   }
 
-  obterVariavel2Observable() {
+  obterVariavel2Observable(): Observable<Product[]> {
     return this.filterSubject.asObservable();
   }
 
-  obterVariavel1Observable() {
+  obterVariavel1Observable(): Observable<string> {
     return this.genderSubject.asObservable();
   }
 
   updateProductFavorite(product: Product): void {
-    const index = this.products.findIndex(p => p.id === product.id);
-    
-    if (index !== -1) {
-      this.products[index] = { ...this.products[index], isfavorite: false };
-      this.filterSubject.next([...this.products]);
-    }
+    this.updateProductProperty(product, 'isfavorite', false);
   }
 
   updateProductCart(product: Product): void {
+    this.updateProductProperty(product, 'toCart', false);
+  }
+
+  private updateProductProperty(product: Product, property: string, value: any): void {
     const index = this.products.findIndex(p => p.id === product.id);
-    
     if (index !== -1) {
-      this.products[index] = { ...this.products[index], toCart: false };
+      this.products[index] = { ...this.products[index], [property]: value };
       this.filterSubject.next([...this.products]);
     }
   }

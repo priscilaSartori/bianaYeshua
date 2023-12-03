@@ -7,63 +7,31 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent {
-  gender: string = '';
   selectedCategory: string = '';
-  
-  constructor(
-    private productService: ProductService,
-    ) {}
 
-  ngOnInit() {
-    this.productService.obterVariavel1Observable().subscribe(novaVariavel => {
-      this.gender = novaVariavel;
-    });
-  }
+  constructor(private productService: ProductService) {}
 
-  getCategoryList(gender: string): string[] {
+  getCategoryList(): string[] {
+    const gender = this.productService.getGender();
     switch (gender) {
       case 'feminino':
-        return this.categoryFeminino;
+        return this.productService.categories.feminino;
       case 'masculino':
-        return this.categoryMasculino;
+        return this.productService.categories.masculino;
       case 'infantil':
-        return this.categoryInfantil;
+        return this.productService.categories.infantil;
       case 'acessorios':
-        return this.categoryAcessorios;
+        return this.productService.categories.acessorios;
       case 'praia':
-        return this.categoryPraia;
+        return this.productService.categories.praia;
       case 'fitness':
-        return this.categoryFitness;
+        return this.productService.categories.fitness;
       default:
         return [];
     }
   }
 
-  categoryFeminino = [
-    'Croppeds', 'Bermudas', 'Blazers', 'Blusas', 'Body', 'Calças', 'Camisas', 'Cardigan', 'Casacos', 'Macacoes', 'Pijamas', 'Saias', 'Vestidos', 'Sapatos',
-    ]
-
-  categoryMasculino = [
-    'Bermudas','Calças','Camisas','Camisetas','Casacos','Cuecas','Moletom','Polos'
-  ]
-
-  categoryInfantil = [
-    'BebeFeminino','BebeMasculino','BebeUnissex','Meninas2a6','Meninos2a6','Meninas7a14','Meninos7a14',
-  ]
-
-  categoryAcessorios = [
-    'Bolsas','Carteiras','Joias','Relogio','Oculos','Cintos','Bones', 'Lenços'
-  ]
-
-  categoryPraia = [
-    'Biquinis','Maios','Cangas','Saidas','Bolsas','ChinelosF','Chapeus', 'Sungas','Shorts','Regatas','Camisetas','ChinelosM','Bones'
-  ]
-
-  categoryFitness = [
-    'Camisetas','Tops','Camisas','Casacos','Moletom','Calças','Bermudas','Cuecas'
-  ]
-
-    filtrar() {
-      this.productService.filterProductsCategory(this.gender, this.selectedCategory.toLowerCase())
-    }
+  filtrar() {
+    this.productService.filterProductsCategory(this.productService.gender, this.selectedCategory.toLowerCase());
+  }
 }

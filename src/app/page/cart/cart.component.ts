@@ -25,6 +25,11 @@ export class CartComponent {
     this.productService.updateProductCart(item.product);
   }
 
+  decreaseItem(item: CartItem): void {
+    this.cartService.decreaseFromCart(item);
+    this.productService.updateProductCart(item.product);
+  }
+
   calculateTotal(): number {
     return this.cartService.calculateTotal();
   }

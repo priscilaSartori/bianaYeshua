@@ -23,6 +23,8 @@ export class SidenavComponent {
   }
 
   fetchProductsByGender(gender: string) {
-    this.productService.filterProductsGender(gender)
+    this.productService.filterProductsGender(gender);
+    this.productService.gender = gender;
+    this.productService.getGender()
   }
 }

@@ -32,7 +32,7 @@ export class CartService {
     this.quantidadeTotal = this.cartItems.reduce((total, item) => total + item.quantity, 0);
   }
 
-  removeFromCart(item: CartItem): void {
+  decreaseFromCart(item: CartItem): void {
     const index = this.cartItems.findIndex(cartItem => cartItem === item);
     if (index !== -1) {
       if (this.cartItems[index].quantity === 1) {
@@ -40,6 +40,15 @@ export class CartService {
       } else {
         this.cartItems[index].quantity--;
       }
+    }
+    this.atualizarQuantidadeTotal();
+    this.zone.run(() => {});
+  }
+
+  removeFromCart(itemToRemove: CartItem): void {
+    const index = this.cartItems.findIndex(cartItem => cartItem === itemToRemove);
+    if (index !== -1) {
+      this.cartItems.splice(index, 1);
     }
     this.atualizarQuantidadeTotal();
     this.zone.run(() => {});
