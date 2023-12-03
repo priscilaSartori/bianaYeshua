@@ -1,130 +1,22 @@
 <mat-sidenav #sidenav mode="side" opened="true">
   <mat-toolbar color="secundary">
-    <button mat-icon-button (mouseenter)="openItem('Feminino')" (click)="fetchProductsByGender('feminino')">
+    <button mat-icon-button (click)="fetchProductsByGender('feminino')">
       <span>Feminino</span>
     </button>
-    <button mat-icon-button (mouseenter)="openItem('Masculino')" (click)="fetchProductsByGender('masculino')">
+    <button mat-icon-button (click)="fetchProductsByGender('masculino')">
       <span>Masculino</span>
     </button>
-    <button mat-icon-button (mouseenter)="openItem('Infantil')" (click)="fetchProductsByGender('infantil')">
+    <button mat-icon-button (click)="fetchProductsByGender('infantil')">
       <span>Infantil</span>
     </button>
-    <button mat-icon-button (mouseenter)="openItem('Acessorios')" (click)="fetchProductsByGender('acessorios')">
+    <button mat-icon-button (click)="fetchProductsByGender('acessorios')">
       <span>Acessórios</span>
     </button>
-    <button mat-icon-button (mouseenter)="openItem('Praia')" (click)="fetchProductsByGender('praia')">
+    <button mat-icon-button (click)="fetchProductsByGender('praia')">
       <span>Moda Praia</span>
     </button>
-    <button mat-icon-button (mouseenter)="openItem('Fitness')" (click)="fetchProductsByGender('fitness')">
+    <button mat-icon-button (click)="fetchProductsByGender('fitness')">
       <span>Fitness</span>
     </button>
   </mat-toolbar>
 </mat-sidenav>
-<section class="sidenav-nav" (mouseleave)="closeItem()">
-  <div *ngIf='nav === "Feminino"'>
-    <ul>
-      <h2>Feminino</h2>
-      <li><button (click)="fetchProductsByCategory('feminino', 'croppeds')">Croppeds</button></li>
-      <li><button (click)="fetchProductsByCategory('feminino', 'bermudas')">Bermudas e shorts</button></li>
-      <li><button (click)="fetchProductsByCategory('feminino', 'blazers')">Blazers</button></li>
-      <li><button (click)="fetchProductsByCategory('feminino', 'blusas')">Blusas e camisetas</button></li>
-      <li><button (click)="fetchProductsByCategory('feminino', 'body')">Body</button></li>
-      <li><button (click)="fetchProductsByCategory('feminino', 'calças')">Calças</button></li>
-      <li><button (click)="fetchProductsByCategory('feminino', 'camisas')">Camisas</button></li>
-      <li><button (click)="fetchProductsByCategory('feminino', 'cardigan')">Cardigan</button></li>
-      <li><button (click)="fetchProductsByCategory('feminino', 'casacos')">Casacos e jaquetas</button></li>
-      <li><button (click)="fetchProductsByCategory('feminino', 'macacoes')">Macacões e jaquetas</button></li>
-      <li><button (click)="fetchProductsByCategory('feminino', 'pijamas')">Pijamas</button></li>
-      <li><button (click)="fetchProductsByCategory('feminino', 'saias')">Saias</button></li>
-      <li><button (click)="fetchProductsByCategory('feminino', 'vestidos')">Vestidos</button></li>
-      <li><button (click)="fetchProductsByCategory('feminino', 'sapatos')">Sapatos</button></li>
-    </ul>
-  </div>
-  <div *ngIf='nav === "Masculino"'>
-    <ul>
-      <h2>Masculino</h2>
-      <li><button (click)="fetchProductsByCategory('masculino', 'bermudas')">Bermudas e shorts</button></li>
-      <li><button (click)="fetchProductsByCategory('masculino', 'calças')">Calças</button></li>
-      <li><button (click)="fetchProductsByCategory('masculino', 'camisas')">Camisas</button></li>
-      <li><button (click)="fetchProductsByCategory('masculino', 'camisetas')">Camisetas</button></li>
-      <li><button (click)="fetchProductsByCategory('masculino', 'casacos')">Casacos</button></li>
-      <li><button (click)="fetchProductsByCategory('masculino', 'cuecas')">Cuecas e meias</button></li>
-      <li><button (click)="fetchProductsByCategory('masculino', 'moletom')">Moletom</button></li>
-      <li><button (click)="fetchProductsByCategory('masculino', 'polos')">Polos</button></li>
-    </ul>
-  </div>
-  <div *ngIf='nav === "Infantil"'>
-    <ul>
-      <h2>Infantil</h2>
-      <li><button (click)="fetchProductsByCategory('infantil', 'bebeFeminino')">Bebê Feminino</button></li>
-      <li><button (click)="fetchProductsByCategory('infantil', 'bebeMasculino')">Bebê Masculino</button></li>
-      <li><button (click)="fetchProductsByCategory('infantil', 'bebeUnissex')">Bebê unissex</button></li>
-      <li><button (click)="fetchProductsByCategory('infantil', 'meninas2a6')">Meninas de 2 a 6 anos</button></li>
-      <li><button (click)="fetchProductsByCategory('infantil', 'meninos2a6')">Meninos de 2 a 6 anos</button></li>
-      <li><button (click)="fetchProductsByCategory('infantil', 'meninas7a14')">Meninas de 7 a 14 anos</button></li>
-      <li><button (click)="fetchProductsByCategory('infantil', 'meninos7a14')">Meninos de 7 a 14 anos</button></li>
-    </ul>
-  </div>
-  <div *ngIf='nav === "Acessorios"'>
-    <ul>
-      <h2>Acessórios</h2>
-      <li><button (click)="fetchProductsByCategory('acessorios', 'bolsas')">Bolsas</button></li>
-      <li><button (click)="fetchProductsByCategory('acessorios', 'carteiras')">Carteiras</button></li>
-      <li><button (click)="fetchProductsByCategory('acessorios', 'joias')">Jóias e Bijuterias</button></li>
-      <li><button (click)="fetchProductsByCategory('acessorios', 'relogio')">Relógio</button></li>
-      <li><button (click)="fetchProductsByCategory('acessorios', 'oculos')">Óculos</button></li>
-      <li><button (click)="fetchProductsByCategory('acessorios', 'cintos')">Cintos</button></li>
-      <li><button (click)="fetchProductsByCategory('acessorios', 'bones')">Bonés</button></li>
-      <li><button (click)="fetchProductsByCategory('acessorios', 'lenços')">Lenços</button></li>
-    </ul>
-  </div>
-  <div *ngIf='nav === "Praia"'>
-    <ul style="display: flex; flex-direction: column">
-      <h2>Moda Praia</h2>
-      <div style="display: flex; flex-direction: row">
-        <div class="praia">
-          <h3>Feminino</h3>
-          <li><button (click)="fetchProductsByCategory('praia', 'biquinis')">Biquínis</button></li>
-          <li><button (click)="fetchProductsByCategory('praia', 'maios')">Maiôs</button></li>
-          <li><button (click)="fetchProductsByCategory('praia', 'cangas')">Cangas</button></li>
-          <li><button (click)="fetchProductsByCategory('praia', 'saidas')">Saídas de praia</button></li>
-          <li><button (click)="fetchProductsByCategory('praia', 'bolsas')">Bolsas e mochila</button></li>
-          <li><button (click)="fetchProductsByCategory('praia', 'chinelosF')">Chinelos</button></li>
-          <li><button (click)="fetchProductsByCategory('praia', 'chapeus')">Chapéus</button></li>
-        </div>
-        <div class="praia">
-          <h3>Masculino</h3>
-          <li><button (click)="fetchProductsByCategory('praia', 'sungas')">Sungas</button></li>
-          <li><button (click)="fetchProductsByCategory('praia', 'shorts')">Shorts e bermudas</button></li>
-          <li><button (click)="fetchProductsByCategory('praia', 'regatas')">Regatas</button></li>
-          <li><button (click)="fetchProductsByCategory('praia', 'camisetas')">Camisetas Ripping</button></li>
-          <li><button (click)="fetchProductsByCategory('praia', 'chinelosM')">Chinelos</button></li>
-          <li><button (click)="fetchProductsByCategory('praia', 'bones')">Bonés</button></li>
-        </div>
-        <div class="praia">
-          <h3>Infantil</h3>
-          <li><button (click)="fetchProductsByCategory('praia', 'biquinisI')">Biquínis</button></li>
-          <li><button (click)="fetchProductsByCategory('praia', 'sungasI')">Sungas</button></li>
-          <li><button (click)="fetchProductsByCategory('praia', 'maiosI')">Maiôs</button></li>
-          <li><button (click)="fetchProductsByCategory('praia', 'shortI')">Short e bermudas</button></li>
-          <li><button (click)="fetchProductsByCategory('praia', 'saidasI')">Saídas de praia</button></li>
-          <li><button (click)="fetchProductsByCategory('praia', 'chinelosI')">Chinelos</button></li>
-          <li><button (click)="fetchProductsByCategory('praia', 'bolsasI')">Bolsas e mochila</button></li>
-        </div>
-      </div>
-    </ul>
-  </div>
-  <div *ngIf='nav === "Fitness"'>
-    <ul>
-      <h2>Fitness</h2>
-      <li><button (click)="fetchProductsByCategory('fitness', 'camisetas')">Camisetas</button></li>
-      <li><button (click)="fetchProductsByCategory('fitness', 'tops')">Tops</button></li>
-      <li><button (click)="fetchProductsByCategory('fitness', 'camisas')">Camisas</button></li>
-      <li><button (click)="fetchProductsByCategory('fitness', 'casacos')">Casacos</button></li>
-      <li><button (click)="fetchProductsByCategory('fitness', 'moletom')">Moletom</button></li>
-      <li><button (click)="fetchProductsByCategory('fitness', 'calças')">Calças</button></li>
-      <li><button (click)="fetchProductsByCategory('fitness', 'bermudas')">Bermudas e shorts</button></li>
-      <li><button (click)="fetchProductsByCategory('fitness', 'cuecas')">Cuecas e meias</button></li>
-    </ul>
-  </div>
-</section>

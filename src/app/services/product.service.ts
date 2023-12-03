@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../interfaces/product';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
   private filterSubject = new Subject<Product[]>();
-  filter: Product[] = []
-  
+  private genderSubject = new Subject<string>();
+  filter: Product[] = [];
+  gender: string = '';
   products: Product[] = [
     {
       id: 1,
@@ -194,6 +196,10 @@ export class ProductService {
     },
   ];
 
+  constructor(
+    private router: Router,
+    ) {}
+
   getProducts() {
     return this.filter.length > 0 ? this.filter : this.products;
   }
@@ -201,6 +207,9 @@ export class ProductService {
   filterProductsGender(gender: any) {
     this.filter = this.products.filter((product) => product.gender === gender)
     this.filterSubject.next(this.filter);
+    this.gender = gender;
+    this.router.navigate(['/products/category/' + gender]);
+    this.genderSubject.next(this.gender);
   }
 
   filterProductsCategory(gender: any, category: any) {
@@ -211,6 +220,10 @@ export class ProductService {
 
   obterVariavel2Observable() {
     return this.filterSubject.asObservable();
+  }
+
+  obterVariavel1Observable() {
+    return this.genderSubject.asObservable();
   }
 
   updateProductFavorite(product: Product): void {

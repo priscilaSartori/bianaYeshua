@@ -1,0 +1,7 @@
+<p>Selecione a categoria:</p>
+<form *ngFor="let category of getCategoryList(gender)">
+  <label>
+    <input type="radio" name="category" [(ngModel)]="selectedCategory" [value]="category">{{category}}
+  </label>
+</form>
+<button (click)="filtrar()">Filtrar</button>

@@ -1,5 +1,6 @@
 <section>
   <app-header></app-header>
+  <app-sidenav></app-sidenav>
   <mat-grid-list cols="5" rowHeight="2:3">
     <mat-grid-tile *ngFor="let product of favoriteItems">
       <app-product-card [product]="product"></app-product-card>

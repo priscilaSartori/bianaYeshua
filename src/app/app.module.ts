@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,6 +23,7 @@ import { CartComponent } from './page/cart/cart.component';
 import { NovidadesComponent } from './page/novidades/novidades.component';
 import { PromocaoComponent } from './page/promocao/promocao.component';
 import { ProductCardComponent } from './componente/product-card/product-card.component';
+import { FilterComponent } from './componente/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { ProductCardComponent } from './componente/product-card/product-card.com
     CartComponent,
     NovidadesComponent,
     PromocaoComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +52,7 @@ import { ProductCardComponent } from './componente/product-card/product-card.com
     MatListModule,
     MatTableModule,
     CarouselModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

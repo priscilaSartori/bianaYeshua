@@ -14,7 +14,7 @@ export class ProductCardComponent implements OnInit {
   @Input() product: any;
   productsNovidades: Product[] = this.productService.products.filter((launch) => launch.isLaunch === true);
   isRoute: string = '';
-  
+
   constructor(
     private productService: ProductService,
     private favoritesService: FavoritesService,
@@ -23,12 +23,12 @@ export class ProductCardComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // console.log(this.router.url)
     if (this.router.url === '/') {
-      this.isRoute = 'home'
-    }
-    if (this.router.url === '/favorites') {
-      this.isRoute = 'favorite'
+      this.isRoute = 'home';
+    } else if (this.router.url.includes('/products')) {
+      this.isRoute = 'products';
+    } else if (this.router.url === '/favorites') {
+      this.isRoute = 'favorite';
     }
   }
 
@@ -44,7 +44,9 @@ export class ProductCardComponent implements OnInit {
   }
 
   toggleFavorite(idFavorite: any) {
-    const product = this.productsNovidades.find(p => p.id === idFavorite);
+    const product = this.isRoute === 'home' ? this.productsNovidades.find(p => p.id === idFavorite) :
+                                              this.productService.products.find(p => p.id === idFavorite);
+
     if (product) {
       product.isfavorite = !product.isfavorite;
 
@@ -57,7 +59,7 @@ export class ProductCardComponent implements OnInit {
   }
 
   addToCart(product: Product): void {
-    this.cartService.addToCart(product) 
+    this.cartService.addToCart(product);
     product.toCart = true;
   }
 

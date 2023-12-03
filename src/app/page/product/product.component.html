@@ -1,6 +1,7 @@
-<app-header></app-header>
-<app-sidenav></app-sidenav>
 <section>
+  <app-header></app-header>
+  <app-sidenav></app-sidenav>
+  <app-filter></app-filter>
   <mat-grid-list cols="5" rowHeight="2:3">
     <mat-grid-tile *ngFor="let product of products">
       <app-product-card [product]="product"></app-product-card>

@@ -7,37 +7,17 @@
     </mat-card-content> 
   </a> 
   <div class="buttons" *ngIf="isRoute === 'favorite'">
-    <button
-      mat-button
-      class="buttonComprar-product"
-      (click)="addFavoriteToCart(product)"
-    >
-      Comprar
-    </button>
+    <button mat-button class="buttonComprar-product" (click)="addFavoriteToCart(product)">Comprar</button>
     <button mat-button (click)="removeFavorite(product)">
       <mat-icon class="icon">favorite</mat-icon>
     </button>
   </div>
-  <div class="buttons" *ngIf="isRoute === 'home'">
+  <div class="buttons" *ngIf="isRoute === 'home' || isRoute === 'products'">
     <button mat-button (click)="toggleFavorite(product.id)">
       <mat-icon class="icon" *ngIf="product.isfavorite">favorite</mat-icon>
       <mat-icon *ngIf="!product.isfavorite">favorite_outline</mat-icon>
     </button>
-    <button
-      mat-button
-      class="buttonComprar-product"
-      (click)="addToCart(product)"
-      *ngIf="!product.toCart"
-    >
-      Comprar
-    </button>
-    <button
-      mat-button
-      class="buttonRemover-product"
-      (click)="removeToCart(product)"
-      *ngIf="product.toCart"
-    >
-      Remover da Sacola
-    </button>
+    <button mat-button class="buttonComprar-product" (click)="addToCart(product)" *ngIf="!product.toCart">Comprar</button>
+    <button mat-button class="buttonRemover-product" (click)="removeToCart(product)" *ngIf="product.toCart">Remover da Sacola</button>
   </div>
 </mat-card>
