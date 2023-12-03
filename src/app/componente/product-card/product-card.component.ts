@@ -61,6 +61,8 @@ export class ProductCardComponent implements OnInit {
   addToCart(product: Product): void {
     this.cartService.addToCart(product);
     product.toCart = true;
+    product.isfavorite = false;
+    this.removeFavorite(product)
   }
 
   removeToCart(product: Product): void {

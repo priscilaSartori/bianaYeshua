@@ -1,11 +1,14 @@
 <section>
   <app-header></app-header>
   <app-sidenav></app-sidenav>
-  <mat-grid-list cols="5" rowHeight="2:3">
-    <mat-grid-tile *ngFor="let product of favoriteItems">
-      <app-product-card [product]="product"></app-product-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+  
+  <ng-container *ngIf="favoriteItems.length > 0; else emptyCart">
+    <mat-grid-list cols="5" rowHeight="2:3">
+      <mat-grid-tile *ngFor="let product of favoriteItems">
+        <app-product-card [product]="product"></app-product-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </ng-container>
   
   <ng-template #emptyCart>
     <p>Não há itens favoritos.</p>
