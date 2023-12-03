@@ -1,3 +1,15 @@
+mat-sidenav {
+  position: absolute;
+  top: 64px;
+  width: 100%;
+}
+
+mat-toolbar {
+  padding: 10px;
+  height: 40px;
+  background-color: rgb(136, 127, 114);
+}
+
 button {
   background-color: transparent;
   border: none;

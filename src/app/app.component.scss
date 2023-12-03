@@ -1,0 +1,26 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+app-header, app-sidenav {
+  position: fixed;
+  z-index: 1000;
+}
+
+app-header {
+  width: 100%;
+  top: 0;
+}
+
+app-sidenav {
+  width: 100%;
+  left: 0;
+  background-color: #eee;
+}
+
+.content-container {
+  flex-grow: 1;
+  margin-top: 104px; 
+  overflow-y: auto;
+}
