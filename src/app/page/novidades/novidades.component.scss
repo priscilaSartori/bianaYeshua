@@ -1,3 +1,37 @@
 .sectionNovidades {
   margin: 30px;
 }
+
+.product-carousel {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+
+.carousel-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  width: 250 * 4;
+}
+
+.product-tile {
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+button {
+  z-index: 1000;
+  border: none;
+  width: 60px;
+  background-color: rgb(247 245 245);
+}
+
+.color-silver {
+  color: silver;
+}
+

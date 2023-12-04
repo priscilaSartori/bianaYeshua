@@ -1,8 +1,16 @@
 <section class="sectionNovidades">
   <h1>NOVA COLEÇÃO</h1>
-  <mat-grid-list cols="5" rowHeight="2:3">
-    <mat-grid-tile *ngFor="let product of productsNovidades">
-      <app-product-card [product]="product"></app-product-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+  <div class="product-carousel">
+      <button (click)="prevSlide()" class="nav-arrow">
+      <mat-icon [ngClass]="{'color-silver': currentIndex === 0}">arrow_back_ios</mat-icon>
+    </button>
+    <div class="carousel-container" [style.transform]="'translateX(' + translateX + 'px)'">
+      <div *ngFor="let product of displayedProducts" class="product-tile">
+        <app-product-card [product]="product"></app-product-card>
+      </div>
+    </div>
+    <button (click)="nextSlide()" class="nav-arrow">
+      <mat-icon [ngClass]="{'color-silver': currentIndex === productsNovidades.length - 4}">arrow_forward_ios</mat-icon>
+    </button>
+  </div>
 </section>
