@@ -12,9 +12,9 @@ const routes: Routes = [
     path: 'products',
     component: ProductComponent,
     children: [
-      { path: '', redirectTo: 'category/all', pathMatch: 'full' },
-      { path: 'category/:gender', component: ProductComponent },
-      { path: 'category/:gender/:category', component: ProductComponent }
+      { path: '', redirectTo: 'all', pathMatch: 'full' },
+      { path: ':gender', component: ProductComponent },
+      { path: ':gender/:category', component: ProductComponent }
     ]
   },
   { path: 'login', component: LoginComponent },

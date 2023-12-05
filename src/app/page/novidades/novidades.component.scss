@@ -8,7 +8,6 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  justify-content: center;
 }
 
 .carousel-container {
@@ -16,7 +15,8 @@
   flex-wrap: nowrap;
   overflow: hidden;
   transition: transform 0.3s ease;
-  width: 250 * 4;
+  justify-content: space-around;
+  width: 1170px;
 }
 
 .product-tile {
@@ -25,7 +25,7 @@
 }
 
 button {
-  z-index: 1000;
+  z-index: 500;
   border: none;
   width: 60px;
   background-color: rgb(247 245 245);

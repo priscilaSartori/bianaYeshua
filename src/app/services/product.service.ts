@@ -231,7 +231,7 @@ export class ProductService {
   filterProductsGender(gender: any) {
     this.filter = this.products.filter((product) => product.gender === gender)
     this.filterSubject.next(this.filter);
-    this.router.navigate(['/products/category/' + gender]);
+    this.router.navigate(['/products/' + gender]);
     this.genderSubject.next(this.gender);
   }
 
