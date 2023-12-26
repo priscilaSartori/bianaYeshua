@@ -1,5 +1,4 @@
 <section>
-  <app-header></app-header>
   <div class="cart-container">
     <div class="card-container-1">
       <h1>Minha Sacola</h1>
@@ -9,8 +8,6 @@
             <tr>
               <th></th>
               <th>Produto</th>
-              <!-- <th>Cor</th>
-              <th>Tamanho</th> -->
               <th>Quantidade</th>
               <th>Preço</th>
               <th></th>
@@ -20,8 +17,6 @@
             <tr *ngFor="let item of cartItems; let i = index">
               <td><img [src]="item.product.imageUrl" alt="{{ item.product.name }}" class="img-cart"></td>
               <td>{{ item.product.name }}</td>
-              <!-- <td>{{ item.color }}</td>
-              <td>{{ item.size }}</td> -->
               <td>
                 <button mat-icon-button (click)="adicionarItem(item)">
                   <mat-icon>add</mat-icon>

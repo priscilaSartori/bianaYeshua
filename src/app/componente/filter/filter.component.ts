@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
+import { categories } from '../../mocks/categoriesData';
 
 @Component({
   selector: 'app-filter',
@@ -8,6 +9,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class FilterComponent {
   selectedCategory: string = '';
+  categories = categories;
 
   constructor(private productService: ProductService) {}
 
@@ -15,23 +17,23 @@ export class FilterComponent {
     const gender = this.productService.getGender();
     switch (gender) {
       case 'feminino':
-        return this.productService.categories.feminino;
+        return categories.feminino;
       case 'masculino':
-        return this.productService.categories.masculino;
+        return categories.masculino;
       case 'infantil':
-        return this.productService.categories.infantil;
+        return categories.infantil;
       case 'acessorios':
-        return this.productService.categories.acessorios;
+        return categories.acessorios;
       case 'praia':
-        return this.productService.categories.praia;
+        return categories.praia;
       case 'fitness':
-        return this.productService.categories.fitness;
+        return categories.fitness;
       default:
         return [];
     }
   }
 
   filtrar() {
-    this.productService.filterProductsCategory(this.productService.gender, this.selectedCategory.toLowerCase());
+    this.productService.filterProductsCategory(this.selectedCategory.toLowerCase());
   }
 }

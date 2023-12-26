@@ -8,7 +8,7 @@ import { Product } from 'src/app/interfaces/product';
   styleUrls: ['./promocao.component.scss']
 })
 export class PromocaoComponent {
-  productsOferta: Product[] = this.productService.products.filter((promotion) => promotion.promotion === true);
+  // productsOferta: Product[] = this.productService.products.filter((promotion) => promotion.promotion === true);
 
   constructor(
     private productService: ProductService,

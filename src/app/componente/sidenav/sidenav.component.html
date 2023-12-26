@@ -1,21 +1,21 @@
 <mat-sidenav #sidenav mode="side" opened="true">
   <mat-toolbar>
-    <button mat-icon-button (click)="fetchProductsByGender('feminino')">
+    <button mat-icon-button (click)="fetchProductsByGender(this.feminino)">
       <span>Feminino</span>
     </button>
-    <button mat-icon-button (click)="fetchProductsByGender('masculino')">
+    <button mat-icon-button (click)="fetchProductsByGender(this.masculino)">
       <span>Masculino</span>
     </button>
-    <button mat-icon-button (click)="fetchProductsByGender('infantil')">
+    <button mat-icon-button (click)="fetchProductsByGender(this.infantil)">
       <span>Infantil</span>
     </button>
-    <button mat-icon-button (click)="fetchProductsByGender('acessorios')">
+    <button mat-icon-button (click)="fetchProductsByGender(this.acessorios)">
       <span>Acessórios</span>
     </button>
-    <button mat-icon-button (click)="fetchProductsByGender('praia')">
+    <button mat-icon-button (click)="fetchProductsByGender(this.praia)">
       <span>Moda Praia</span>
     </button>
-    <button mat-icon-button (click)="fetchProductsByGender('fitness')">
+    <button mat-icon-button (click)="fetchProductsByGender(this.fitness)">
       <span>Fitness</span>
     </button>
   </mat-toolbar>

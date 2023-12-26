@@ -12,9 +12,7 @@ import { Subscription } from 'rxjs';
 })
 export class ProductComponent implements OnInit, OnDestroy{
   products: Product[] = [];
-  filtroGenero: string = '';
   private inscricaoFiltro: Subscription;
-  private inscricaoGenero: Subscription;
 
   constructor(
     private productService: ProductService,
@@ -24,16 +22,10 @@ export class ProductComponent implements OnInit, OnDestroy{
     this.inscricaoFiltro = this.productService.obterVariavel2Observable().subscribe(produtos => {
       this.products = produtos;
     });
-
-    this.inscricaoGenero = this.productService.obterVariavel1Observable().subscribe(genero => {
-      this.filtroGenero = genero;
-    });
   }
 
   ngOnInit() {
-    // this.getProducts();
     this.products = this.productService.getProducts();
-    this.filtroGenero = this.productService.getGender();
   }
 
   // getProducts() {
@@ -46,6 +38,5 @@ export class ProductComponent implements OnInit, OnDestroy{
 
   ngOnDestroy() {
     this.inscricaoFiltro.unsubscribe();
-    this.inscricaoGenero.unsubscribe();
   }
 }

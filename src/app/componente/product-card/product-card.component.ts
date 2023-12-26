@@ -71,5 +71,6 @@ export class ProductCardComponent implements OnInit {
       this.cartService.removeFromCart(itemRemove);
       product.toCart = false;
     }
+    this.productService.updateProductCart(product);
   }
 }

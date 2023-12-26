@@ -1,0 +1,72 @@
+export const categories = {
+  feminino: [
+    'Croppeds', 
+    'Bermudas', 
+    'Blazers', 
+    'Blusas', 
+    'Body', 
+    'Calças', 
+    'Camisas', 
+    'Cardigan', 
+    'Casacos', 
+    'Macacoes',
+    'Pijamas', 
+    'Saias', 
+    'Vestidos', 
+    'Sapatos',
+    ],  
+  masculino: [
+    'Bermudas',
+    'Calças',
+    'Camisas',
+    'Camisetas',
+    'Casacos',
+    'Cuecas',
+    'Moletom',
+    'Polos'
+  ],  
+  infantil: [
+    'BebeFeminino',
+    'BebeMasculino',
+    'BebeUnissex',
+    'Meninas2a6',
+    'Meninos2a6',
+    'Meninas7a14',
+    'Meninos7a14',
+  ],  
+  acessorios: [
+    'Bolsas',
+    'Carteiras',
+    'Joias',
+    'Relogio',
+    'Oculos',
+    'Cintos',
+    'Bones', 
+    'Lenços'
+  ],  
+  praia: [
+    'Biquinis',
+    'Maios',
+    'Cangas',
+    'Saidas',
+    'Bolsas',
+    'ChinelosF',
+    'Chapeus', 
+    'Sungas',
+    'Shorts',
+    'Regatas',
+    'Camisetas',
+    'ChinelosM',
+    'Bones'
+  ],
+  fitness: [
+    'Camisetas',
+    'Tops',
+    'Camisas',
+    'Casacos',
+    'Moletom',
+    'Calças',
+    'Bermudas',
+    'Cuecas'
+  ]
+}

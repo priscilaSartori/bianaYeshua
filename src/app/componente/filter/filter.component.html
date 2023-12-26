@@ -2,6 +2,6 @@
 <form *ngFor="let category of getCategoryList()">
   <label>
     <input type="radio" name="category" [(ngModel)]="selectedCategory" [value]="category">{{ category }}
-  </label>
+  </label> 
 </form>
 <button (click)="filtrar()">Filtrar</button>

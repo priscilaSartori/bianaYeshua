@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
+import { feminino, masculino, infantil, acessorios, praia, fitness } from '../../mocks/productsData';
 
 @Component({
   selector: 'app-sidenav',
@@ -9,6 +10,12 @@ import { ProductService } from 'src/app/services/product.service';
 export class SidenavComponent {
   nav: string =  '';
   category: string = 'all';
+  feminino = feminino;
+  masculino = masculino;
+  infantil = infantil;
+  acessorios = acessorios;
+  praia = praia;
+  fitness = fitness;
 
   constructor(
     private productService: ProductService, 
@@ -22,9 +29,7 @@ export class SidenavComponent {
     this.nav = '';
   }
 
-  fetchProductsByGender(gender: string) {
-    this.productService.filterProductsGender(gender);
-    this.productService.gender = gender;
-    this.productService.getGender()
+  fetchProductsByGender(produtos: any) {
+    this.productService.productsGender(produtos);
   }
 }
