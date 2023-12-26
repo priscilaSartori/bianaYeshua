@@ -23,6 +23,7 @@ export class ProductCardComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log(this.product)
     if (this.router.url === '/') {
       this.isRoute = 'home';
     } else if (this.router.url.includes('/products')) {
