@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FavoritesService } from 'src/app/services/favorites.service';
-import { Product } from 'src/app/interfaces/product';
+import { IProduct } from 'src/app/interfaces/IProduct';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
@@ -10,8 +10,8 @@ import { Subject } from 'rxjs';
   styleUrls: ['./favorites.component.scss']
 })
 export class FavoritesComponent implements OnInit {
-  favoriteItems: Product[] = [];
-  products: Product[] = [];
+  favoriteItems: IProduct[] = [];
+  products: IProduct[] = [];
   private destroy$ = new Subject<void>();
 
   constructor(

@@ -1,6 +1,6 @@
-import { Product } from "../interfaces/product";
+import { IProduct } from "../interfaces/IProduct";
 
-export const feminino: Product[] = [
+export const feminino: IProduct[] = [
   {
     id: 1,
     name: 'Blusa',
@@ -107,7 +107,7 @@ export const feminino: Product[] = [
   },
 ]
 
-export const masculino: Product[] = [
+export const masculino: IProduct[] = [
   {
     id: 9,
     name: 'Blusa Nike',
@@ -123,7 +123,7 @@ export const masculino: Product[] = [
   },
 ]
 
-export const infantil: Product[] = [
+export const infantil: IProduct[] = [
   {
     id: 10,
     name: 'Vestido Mixed',
@@ -139,7 +139,7 @@ export const infantil: Product[] = [
   },
 ]
 
-export const acessorios: Product[] = [
+export const acessorios: IProduct[] = [
   {
     id: 11,
     name: 'Óculos Chanel',
@@ -168,7 +168,7 @@ export const acessorios: Product[] = [
   },
 ]
 
-export const praia: Product[] = [
+export const praia: IProduct[] = [
   {
     id: 13,
     name: 'Maio',
@@ -184,7 +184,7 @@ export const praia: Product[] = [
   },
 ]
 
-export const fitness: Product[] = [
+export const fitness: IProduct[] = [
   {
     id: 14,
     name: 'Top',

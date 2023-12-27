@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FavoritesService } from 'src/app/services/favorites.service';
 import { ProductService } from '../../services/product.service';
 import { CartService } from 'src/app/services/cart.service';
-import { Product } from 'src/app/interfaces/product';
+import { IProduct } from 'src/app/interfaces/IProduct';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ProductCardComponent implements OnInit {
   @Input() product: any;
-  productsNovidades: Product[] = this.productService.products.filter((launch) => launch.isLaunch === true);
+  productsNovidades: IProduct[] = this.productService.products.filter((launch) => launch.isLaunch === true);
   isRoute: string = '';
 
   constructor(
@@ -23,7 +23,6 @@ export class ProductCardComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log(this.product)
     if (this.router.url === '/') {
       this.isRoute = 'home';
     } else if (this.router.url.includes('/products')) {
@@ -38,7 +37,7 @@ export class ProductCardComponent implements OnInit {
     this.productService.updateProductFavorite(item);
   }
 
-  addFavoriteToCart(product: Product) {
+  addFavoriteToCart(product: IProduct) {
     this.cartService.addToCart(product);
     product.toCart = true;
     this.removeFavorite(product);
@@ -59,14 +58,14 @@ export class ProductCardComponent implements OnInit {
     }
   }
 
-  addToCart(product: Product): void {
+  addToCart(product: IProduct): void {
     this.cartService.addToCart(product);
     product.toCart = true;
     product.isfavorite = false;
     this.removeFavorite(product)
   }
 
-  removeToCart(product: Product): void {
+  removeToCart(product: IProduct): void {
     const itemRemove = this.cartService.cartItems.find((cart) => cart.product.id === product.id);
     if (itemRemove) {
       this.cartService.removeFromCart(itemRemove);

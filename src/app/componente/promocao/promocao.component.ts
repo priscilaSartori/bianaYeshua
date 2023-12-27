@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ProductService } from '../../services/product.service';
-import { Product } from 'src/app/interfaces/product';
+import { IProduct } from 'src/app/interfaces/IProduct';
 import { PromotionService } from 'src/app/services/promotion.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { PromotionService } from 'src/app/services/promotion.service';
   styleUrls: ['./promocao.component.scss']
 })
 export class PromocaoComponent {
-  productsOferta: Product[] = this.productService.products.filter((promotion) => promotion.promotion === true);
+  productsOferta: IProduct[] = this.productService.products.filter((promotion) => promotion.promotion === true);
   slides = this.promotionService.getSlides();
   promotion = this.promotionService.getPromocoes();
   

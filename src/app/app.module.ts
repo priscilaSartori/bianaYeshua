@@ -8,7 +8,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,6 +27,9 @@ import { PromocaoComponent } from './componente/promocao/promocao.component';
 import { ProductCardComponent } from './componente/product-card/product-card.component';
 import { FilterComponent } from './componente/filter/filter.component';
 import { FooterComponent } from './componente/footer/footer.component';
+import { RegistrationComponent } from './page/registration/registration.component';
+import { ForgotPasswordComponent } from './page/forgot-password/forgot-password.component';
+import { ProfileComponent } from './page/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +45,10 @@ import { FooterComponent } from './componente/footer/footer.component';
     PromocaoComponent,
     ProductCardComponent,
     FilterComponent,
-    FooterComponent
+    FooterComponent,
+    RegistrationComponent,
+    ForgotPasswordComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +63,9 @@ import { FooterComponent } from './componente/footer/footer.component';
     MatTableModule,
     CarouselModule,
     FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

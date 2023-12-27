@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
-import { CartItem } from '../interfaces/cart';
-import { Product } from '../interfaces/product';
+import { ICart } from '../interfaces/ICart';
+import { IProduct } from '../interfaces/IProduct';
 import { NgZone } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  cartItems: CartItem[] = [];
+  cartItems: ICart[] = [];
   quantidadeTotal: number = 0;
 
   constructor(private zone: NgZone) {}
 
-  getCartItems(): CartItem[] {
+  getCartItems(): ICart[] {
     return this.cartItems;
   }
 
-  addToCart(product: Product): void {
+  addToCart(product: IProduct): void {
     const existingItem = this.cartItems.find(item => item.product.id === product.id);
 
     if (existingItem) {
@@ -32,7 +32,7 @@ export class CartService {
     this.quantidadeTotal = this.cartItems.reduce((total, item) => total + item.quantity, 0);
   }
 
-  decreaseFromCart(item: CartItem): void {
+  decreaseFromCart(item: ICart): void {
     const index = this.cartItems.findIndex(cartItem => cartItem === item);
     if (index !== -1) {
       if (this.cartItems[index].quantity === 1) {
@@ -45,7 +45,7 @@ export class CartService {
     this.zone.run(() => {});
   }
 
-  removeFromCart(itemToRemove: CartItem): void {
+  removeFromCart(itemToRemove: ICart): void {
     const index = this.cartItems.findIndex(cartItem => cartItem === itemToRemove);
     if (index !== -1) {
       this.cartItems.splice(index, 1);

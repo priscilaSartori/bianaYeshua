@@ -1,11 +1,20 @@
-<mat-toolbar>
+<mat-toolbar *ngIf="!logged">
   <button mat-button class="logo" routerLink="/"><h1>Minha Loja de Roupas</h1></button>
   <span class="spacer">FRETE GRÁTIS ACIMA DE R$ 249</span>
-  <button mat-button routerLink="/login">Entre ou Cadastre-se</button>
+  <button mat-button routerLink="/login">Entre</button>
   <button mat-button routerLink="/favorites">Favoritos</button>
   <button mat-button routerLink="/cart">
     <mat-icon>shopping_cart</mat-icon>
     <span *ngIf="cartService.quantidadeTotal > 0">{{ cartService.quantidadeTotal }}</span>
   </button>
 </mat-toolbar>
-<!-- <div class="frete">FRETE GRÁTIS ACIMA DE R$ 249</div> -->
+<mat-toolbar *ngIf="logged">
+  <button mat-button class="logo" routerLink="/"><h1>Minha Loja de Roupas</h1></button>
+  <span class="spacer">FRETE GRÁTIS ACIMA DE R$ 249</span>
+  <button mat-button routerLink="/profile">Perfil</button>
+  <button mat-button routerLink="/favorites">Favoritos</button>
+  <button mat-button routerLink="/cart">
+    <mat-icon>shopping_cart</mat-icon>
+    <span *ngIf="cartService.quantidadeTotal > 0">{{ cartService.quantidadeTotal }}</span>
+  </button>
+</mat-toolbar>

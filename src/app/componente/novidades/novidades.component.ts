@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Product } from 'src/app/interfaces/product';
+import { IProduct } from 'src/app/interfaces/IProduct';
 import { ProductService } from '../../services/product.service';
 import { feminino, masculino, infantil, acessorios, praia, fitness } from '../../mocks/productsData';
 
@@ -9,7 +9,7 @@ import { feminino, masculino, infantil, acessorios, praia, fitness } from '../..
   styleUrls: ['./novidades.component.scss']
 })
 export class NovidadesComponent {
-  productsNovidades: Product[] = [];
+  productsNovidades: IProduct[] = [];
   displayedProducts = this.productsNovidades.slice(0, 4);
   currentIndex = 0;
   translateX = 0;

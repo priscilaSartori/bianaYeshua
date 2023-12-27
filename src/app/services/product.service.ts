@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable, from } from 'rxjs';
 import { Router } from '@angular/router';
-import { Product } from '../interfaces/product';
+import { IProduct } from '../interfaces/IProduct';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  private productsSubject = new Subject<Product[]>();
+  private productsSubject = new Subject<IProduct[]>();
   private genderSubject = new Subject<string>();
 
-  products: Product[] = [];
+  products: IProduct[] = [];
   gender: string = '';
-  filter: Product[] = [];
+  filter: IProduct[] = [];
 
   constructor(private router: Router) {}
 
@@ -37,7 +37,7 @@ export class ProductService {
     this.productsSubject.next(this.filter);
   }
 
-  obterVariavel2Observable(): Observable<Product[]> {
+  obterVariavel2Observable(): Observable<IProduct[]> {
     return this.productsSubject.asObservable();
   }
 
@@ -45,15 +45,15 @@ export class ProductService {
     return this.genderSubject.asObservable();
   }
 
-  updateProductFavorite(product: Product): void {
+  updateProductFavorite(product: IProduct): void {
     this.updateProduct(product, 'isfavorite', false);
   }
 
-  updateProductCart(product: Product): void {
+  updateProductCart(product: IProduct): void {
     this.updateProduct(product, 'toCart', false);
   }
 
-  private updateProduct(product: Product, property: string, value: any): void {
+  private updateProduct(product: IProduct, property: string, value: any): void {
     const index = this.products.findIndex(p => p.id === product.id);
     if (index !== -1) {
       this.products[index] = { ...this.products[index], [property]: value };

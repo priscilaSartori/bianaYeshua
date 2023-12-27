@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CartService } from '../../services/cart.service';
-import { CartItem } from 'src/app/interfaces/cart';
+import { ICart } from '../../interfaces/ICart';
 import { ProductService } from '../../services/product.service';
 
 @Component({
@@ -16,16 +16,16 @@ export class CartComponent {
     private productService: ProductService,
     ) {}
 
-  adicionarItem(item: CartItem): void {
+  adicionarItem(item: ICart): void {
     this.cartService.addToCart(item.product);
   }
 
-  removerItem(item: CartItem): void {
+  removerItem(item: ICart): void {
     this.cartService.removeFromCart(item);
     this.productService.updateProductCart(item.product);
   }
 
-  decreaseItem(item: CartItem): void {
+  decreaseItem(item: ICart): void {
     this.cartService.decreaseFromCart(item);
     this.productService.updateProductCart(item.product);
   }

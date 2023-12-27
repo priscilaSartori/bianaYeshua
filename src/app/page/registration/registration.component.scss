@@ -5,7 +5,7 @@ section {
 h1 {
   position: absolute;
   top: 25%;
-  left: 48%;
+  left: 45%;
 }
 
 .login-form {
@@ -21,20 +21,20 @@ h1 {
   width: 100%;
   margin-bottom: 10px;
 }
-
-.forgotPassword {
-  border: none;
-  background-color: transparent;
-  height: 30px;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.buttonEnter {
+    
+.buttontoCreate {
   width: 100%;
 }
 
 p {
   margin-top: 20px;
+}
+
+.message {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  position: absolute;
+  top: 35%;
+  left: 40%;
 }

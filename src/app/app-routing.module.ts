@@ -5,6 +5,9 @@ import { ProductComponent } from './page/product/product.component';
 import { LoginComponent } from './page/login/login.component';
 import { FavoritesComponent } from './page/favorites/favorites.component';
 import { CartComponent } from './page/cart/cart.component';
+import { RegistrationComponent } from './page/registration/registration.component';
+import { ForgotPasswordComponent } from './page/forgot-password/forgot-password.component';
+import { ProfileComponent } from './page/profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,7 +23,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'favorites', component: FavoritesComponent },
   { path: 'cart', component: CartComponent },
-  
+  { path: 'registration', component: RegistrationComponent },
+  { path: 'forgotPassword', component: ForgotPasswordComponent },
+  { path: 'profile', component: ProfileComponent },
 ];
 
 @NgModule({

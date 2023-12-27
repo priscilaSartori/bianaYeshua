@@ -1,3 +1,22 @@
 <section>
-  <app-header></app-header>
+  <h1>Login</h1>
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="full-width">
+      <mat-label>E-mail</mat-label>
+      <input matInput placeholder="E-mail" formControlName="email">
+      <mat-error *ngIf="loginForm.get('email')!.hasError('required')">E-mail é obrigatório.</mat-error>
+      <mat-error *ngIf="loginForm.get('email')!.hasError('email')">E-mail inválido.</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field class="full-width">
+      <mat-label>Senha</mat-label>
+      <input matInput type="password" placeholder="Senha" formControlName="password">
+      <mat-error *ngIf="loginForm.get('password')!.hasError('required')">Senha é obrigatória.</mat-error>
+      <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">Senha deve possuir no mínimo 6 caracteres.</mat-error>
+    </mat-form-field>
+
+    <a [routerLink]="['/forgotPassword']" class="forgotPassword">Recuperar senha</a>
+    <button mat-raised-button color="primary" class="buttonEnter" [disabled]="loginForm.invalid">Entrar</button>
+    <p>Ainda não tem conta? <a [routerLink]="['/registration']" class="registration">Crie agora</a></p>
+  </form>
 </section>
