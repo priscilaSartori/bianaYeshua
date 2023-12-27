@@ -1,0 +1,12 @@
+<section>
+  <button>Adicionar Cartão</button>
+  <div *ngIf="!cartaoCadastrado">
+    <p>Você não tem nenhum método de pagamento registrado.</p>
+  </div>
+  <div *ngIf="cartaoCadastrado">
+    <div *ngFor="let cartao of cartoes">
+      <p>{{cartao}}</p>
+      <button>Excluir</button>
+    </div>
+  </div>
+</section>

@@ -1,1 +1,27 @@
-<p>profile works!</p>
+<section>
+  <div class="nav">
+    <a (click)="displayPage('navDados')">
+      <span>Dados Pessoais</span>
+    </a>
+    <a (click)="displayPage('navEndereco')">
+      <span>Endereços</span>
+    </a>
+    <a (click)="displayPage('navPedido')">
+      <span>Pedidos</span>
+    </a>
+    <a (click)="displayPage('navCartao')">
+      <span>Cartões</span>
+    </a>
+    <a (click)="displayPage('navFavoritos')">
+      <span>Meus Favoritos</span>
+    </a>
+    <a [routerLink]="['/login']" style="text-decoration: none; color: black;">Sair</a>
+  </div>
+  <div class="tela">
+    <app-profile-dados *ngIf="this.page === 'navDados'"></app-profile-dados>
+    <app-profile-endereco *ngIf="this.page === 'navEndereco'"></app-profile-endereco>
+    <app-profile-pedido *ngIf="this.page === 'navPedido'"></app-profile-pedido>
+    <app-profile-cartao *ngIf="this.page === 'navCartao'"></app-profile-cartao>
+    <app-favorites *ngIf="this.page === 'navFavoritos'"></app-favorites>
+  </div>
+</section>

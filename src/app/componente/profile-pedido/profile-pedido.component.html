@@ -1,0 +1,10 @@
+<section>
+  <div *ngIf="!pedidoConcluidos">
+    <p>Você ainda não possui pedidos</p>
+  </div>
+  <div *ngIf="pedidoConcluidos">
+    <div *ngFor="let pedido of pedidos">
+      <p>{{pedido}}</p>
+    </div>
+  </div>
+</section>

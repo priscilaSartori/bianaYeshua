@@ -1,0 +1,12 @@
+<section>
+  <button>Adicionar Endereço</button>
+  <div *ngIf="!enderecoCadastrado">
+    <p>Você não tem endereço cadastrado</p>
+  </div>
+  <div *ngIf="enderecoCadastrado">
+    <div *ngFor="let endereco of enderecos">
+      <p>{{endereco}}</p>
+      <button>Editar</button>
+    </div>
+  </div>
+</section>

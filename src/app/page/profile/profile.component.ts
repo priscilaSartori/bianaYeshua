@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent {
+  page = 'navDados';
 
+  displayPage(event: any) {
+    this.page = event;
+  }
 }

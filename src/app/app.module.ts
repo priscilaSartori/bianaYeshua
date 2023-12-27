@@ -30,6 +30,10 @@ import { FooterComponent } from './componente/footer/footer.component';
 import { RegistrationComponent } from './page/registration/registration.component';
 import { ForgotPasswordComponent } from './page/forgot-password/forgot-password.component';
 import { ProfileComponent } from './page/profile/profile.component';
+import { ProfileDadosComponent } from './componente/profile-dados/profile-dados.component';
+import { ProfileEnderecoComponent } from './componente/profile-endereco/profile-endereco.component';
+import { ProfilePedidoComponent } from './componente/profile-pedido/profile-pedido.component';
+import { ProfileCartaoComponent } from './componente/profile-cartao/profile-cartao.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +52,11 @@ import { ProfileComponent } from './page/profile/profile.component';
     FooterComponent,
     RegistrationComponent,
     ForgotPasswordComponent,
-    ProfileComponent
+    ProfileComponent,
+    ProfileDadosComponent,
+    ProfileEnderecoComponent,
+    ProfilePedidoComponent,
+    ProfileCartaoComponent
   ],
   imports: [
     BrowserModule,
