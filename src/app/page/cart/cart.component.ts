@@ -10,7 +10,10 @@ import { ProductService } from '../../services/product.service';
 })
 export class CartComponent {
   cartItems = this.cartService.getCartItems();
-  
+  entrega: number = 0;
+  desconto: number = 0;
+  calculateTotal: number = this.cartService.calculateTotal() + this.entrega + this.desconto;
+
   constructor(
     private cartService: CartService,
     private productService: ProductService,
@@ -30,7 +33,7 @@ export class CartComponent {
     this.productService.updateProductCart(item.product);
   }
 
-  calculateTotal(): number {
+  calculateSubTotal(): number {
     return this.cartService.calculateTotal();
   }
 

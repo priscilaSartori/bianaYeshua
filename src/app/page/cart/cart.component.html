@@ -9,7 +9,8 @@
               <th></th>
               <th>Produto</th>
               <th>Quantidade</th>
-              <th>Preço</th>
+              <th>Preço unitário</th>
+              <th>Preço Total</th>
               <th></th>
             </tr>
           </thead>
@@ -27,6 +28,7 @@
                 </button>
               </td>
               <td>{{ item.product.price | currency:'BRL':'symbol':'1.2-2' }}</td>
+              <td>{{ item.product.price * item.quantity | currency:'BRL':'symbol':'1.2-2' }}</td>
               <td>
                 <button mat-icon-button (click)="removerItem(item)">
                   <mat-icon>delete</mat-icon>
@@ -38,8 +40,11 @@
       </div>
     </div>
     <div class="card-container-2">
-      <h1>Resumo da Compra</h1>
-      <p>Total: {{ calculateTotal() | currency }}</p>
+      <h1>Resumo do pedido</h1>
+      <p>Subtotal: {{ calculateSubTotal() | currency }}</p>
+      <p>Cupom | Desconto: {{ desconto | currency }}</p>
+      <p>Entrega: {{ entrega | currency }}</p>
+      <h2>Subtotal: {{ calculateTotal | currency }}</h2>
       <div class="card-container-2-button">
         <button mat-icon-button (click)="pagamento()">Finalizar a compra</button>
         <button mat-icon-button routerLink="/">Continuar comprando</button>

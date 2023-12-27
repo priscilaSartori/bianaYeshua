@@ -1,3 +1,7 @@
+section {
+  min-height: 400px;
+}
+
 .cart-container {
   display: flex;
   flex-direction: row;
@@ -59,9 +63,10 @@ th {
   color: #fff;
   padding: 8px;
   border: 1px #3d4949 solid;
+  text-align: center;
 }
 
-button {
+td button {
   border: none;
   background: transparent;
 }
