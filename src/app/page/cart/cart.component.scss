@@ -33,9 +33,6 @@ section {
 }
 
 .card-container-2-button {
-  position: fixed;
-  bottom: 50%;
-  width: 30%;
   display: flex;
   justify-content: space-evenly;
 }
@@ -69,4 +66,11 @@ th {
 td button {
   border: none;
   background: transparent;
+}
+
+.totais {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 30px;
 }

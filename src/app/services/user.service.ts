@@ -16,9 +16,8 @@ export class UserService {
     return this.logged;
   }
 
-  changeLogged(loginForm: any) {
-    console.log(loginForm)
-    this.logged = true;
+  changeLogged() {
+    this.logged = !this.logged;
     this.loggedSubject.next(this.logged);
   }
 

@@ -26,7 +26,7 @@ export class LoginComponent {
     if(this.loginForm.invalid) {
       return
     }
-    this.userService.changeLogged(this.loginForm);
+    this.userService.changeLogged();
     this.router.navigate(['/']);
   }
 }

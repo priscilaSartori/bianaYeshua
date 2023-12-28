@@ -41,10 +41,22 @@
     </div>
     <div class="card-container-2">
       <h1>Resumo do pedido</h1>
-      <p>Subtotal: {{ calculateSubTotal() | currency }}</p>
-      <p>Cupom | Desconto: {{ desconto | currency }}</p>
-      <p>Entrega: {{ entrega | currency }}</p>
-      <h2>Subtotal: {{ calculateTotal | currency }}</h2>
+      <div class="totais">
+        <p>Subtotal:</p>
+        <p>{{ calculateSubTotal() | currency }}</p>
+      </div>
+      <div class="totais">
+        <p>Cupom | Desconto:</p>
+        <p>{{ desconto | currency }}</p>
+      </div>
+      <div class="totais">
+        <p>Entrega:</p>
+        <p>{{ entrega | currency }}</p>
+      </div>
+      <div class="totais">
+        <h2>Subtotal:</h2>
+        <p>{{ calculateTotal | currency }}</p>
+      </div>
       <div class="card-container-2-button">
         <button mat-icon-button (click)="pagamento()">Finalizar a compra</button>
         <button mat-icon-button routerLink="/">Continuar comprando</button>
